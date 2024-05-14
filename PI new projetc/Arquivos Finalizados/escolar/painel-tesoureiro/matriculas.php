@@ -215,13 +215,13 @@ if(@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'tesoureir
 
                     $query_2 = $pdo->query("SELECT * FROM turmas where id = '$id_turma' ");
                     $res_2 = $query_2->fetchAll(PDO::FETCH_ASSOC);
-                    $disciplina = $res_2[0]['disciplina'];
+                    $treino = $res_2[0]['treino'];
                     $horario = $res_2[0]['horario'];
                     $dia = $res_2[0]['dia'];
                     $ano = $res_2[0]['ano'];
                   
 
-                    $query_resp = $pdo->query("SELECT * FROM disciplinas where id = '$disciplina' ");
+                    $query_resp = $pdo->query("SELECT * FROM treinos where id = '$treino' ");
                     $res_resp = $query_resp->fetchAll(PDO::FETCH_ASSOC);
                     
                     $nome_disc = $res_resp[0]['nome'];
@@ -298,9 +298,9 @@ if(@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'tesoureir
 
                       $query = $pdo->query("SELECT * FROM turmas where id = '$id_turma' ");
                     $res = $query->fetchAll(PDO::FETCH_ASSOC);
-                    $disciplina = $res[0]['disciplina'];
+                    $treino = $res[0]['treino'];
 
-                    $query = $pdo->query("SELECT * FROM disciplinas where id = '$disciplina' ");
+                    $query = $pdo->query("SELECT * FROM treinos where id = '$treino' ");
                     $res = $query->fetchAll(PDO::FETCH_ASSOC);
                     $nome_disciplina = $res[0]['nome'];
                  ?>

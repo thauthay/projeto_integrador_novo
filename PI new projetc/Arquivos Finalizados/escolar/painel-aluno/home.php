@@ -87,7 +87,7 @@ for ($i=0; $i < count($res); $i++) {
 				<div class="card-body">
 					<div class="row no-gutters align-items-center">
 						<div class="col mr-2">
-							<div class="text-xs font-weight-bold text-success text-uppercase mb-1">Disciplinas Concluídas</div>
+							<div class="text-xs font-weight-bold text-success text-uppercase mb-1">Treinos Concluídos</div>
 							<div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo @$discConcluidas ?> </div>
 						</div>
 						<div class="col-auto">
@@ -104,7 +104,7 @@ for ($i=0; $i < count($res); $i++) {
 				<div class="card-body">
 					<div class="row no-gutters align-items-center">
 						<div class="col mr-2">
-							<div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Disciplinas Pendentes</div>
+							<div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Treinos Pendentes</div>
 							<div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo @$discPendentes ?> </div>
 						</div>
 						<div class="col-auto" align="center">
@@ -160,7 +160,7 @@ for ($i=0; $i < count($res); $i++) {
 
 			$query_2 = $pdo->query("SELECT * FROM turmas where id = '$id_turma' ");
 			$res_2 = $query_2->fetchAll(PDO::FETCH_ASSOC);
-			$disciplina = $res_2[0]['disciplina'];
+			$treino = $res_2[0]['treino'];
 			$horario = $res_2[0]['horario'];
 			$dia = $res_2[0]['dia'];
 			$ano = $res_2[0]['ano'];
@@ -168,7 +168,7 @@ for ($i=0; $i < count($res); $i++) {
 
 			$data_finalF = implode('/', array_reverse(explode('-', $data_final)));
 
-			$query_resp = $pdo->query("SELECT * FROM disciplinas where id = '$disciplina' ");
+			$query_resp = $pdo->query("SELECT * FROM treinos where id = '$treino' ");
 			$res_resp = $query_resp->fetchAll(PDO::FETCH_ASSOC);
 
 			$nome_disc = $res_resp[0]['nome'];

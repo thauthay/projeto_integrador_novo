@@ -8,8 +8,8 @@
     $menu2 = "mensalidades";
     $menu3 = "pagar";
     $menu4 = "funcionarios";
-    $menu5 = "disciplinas";
-    $menu6 = "salas";
+    $menu5 = "treinos";
+    $menu6 = "campos";
     $menu7 = "turmas";
 
 
@@ -34,7 +34,7 @@ $idUsuario = @$res[0]['id'];
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
-        <meta name="author" content="Hugo Vasconcelos">
+        <meta name="author" content="">
 
         <title>Painel Professor</title>
 
@@ -98,12 +98,12 @@ $id_prof = $res[0]['id'];
                      for ($i=0; $i < count($res); $i++) { 
                   foreach ($res[$i] as $key => $value) {
                   }
-                    $disciplina = $res[$i]['disciplina'];
+                    $treino = $res[$i]['treino'];
                     
                     $id_turma = $res[$i]['id'];
 
                    
-                    $query_resp = $pdo->query("SELECT * FROM disciplinas where id = '$disciplina' ");
+                    $query_resp = $pdo->query("SELECT * FROM treinos where id = '$treino' ");
                     $res_resp = $query_resp->fetchAll(PDO::FETCH_ASSOC);
                     
                     $nome_disc = $res_resp[0]['nome'];

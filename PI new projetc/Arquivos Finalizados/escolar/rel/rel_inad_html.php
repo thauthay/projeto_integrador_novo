@@ -218,7 +218,7 @@ if($dataInicial != $dataFinal){
 <table class='table' width='100%'  cellspacing='0' cellpadding='3'>
 			<tr bgcolor='#f9f9f9' >
 				<th>Aluno</th>
-				<th>Disciplina</th>
+				<th>Treino</th>
 				<th>Valor</th>
 				<th>Data Vencimento</th>
 				
@@ -257,9 +257,9 @@ if($dataInicial != $dataFinal){
 
 						$query_usu = $pdo->query("SELECT * FROM turmas where id = '$turma'");
 						$res_usu = $query_usu->fetchAll(PDO::FETCH_ASSOC);
-						$disciplina = $res_usu[0]['disciplina'];
+						$treino = $res_usu[0]['treino'];
 
-						$query_usu = $pdo->query("SELECT * FROM disciplinas where id = '$disciplina'");
+						$query_usu = $pdo->query("SELECT * FROM treinos where id = '$treino'");
 						$res_usu = $query_usu->fetchAll(PDO::FETCH_ASSOC);
 						$nome_disciplina = $res_usu[0]['nome'];
 						

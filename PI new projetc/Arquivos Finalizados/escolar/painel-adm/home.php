@@ -102,7 +102,7 @@ $query = $pdo->query("SELECT * FROM turmas");
 $res = $query->fetchAll(PDO::FETCH_ASSOC);
 $totalTurmas = @count($res);
 
-$query = $pdo->query("SELECT * FROM disciplinas");
+$query = $pdo->query("SELECT * FROM treinos");
 $res = $query->fetchAll(PDO::FETCH_ASSOC);
 $totalDisc = @count($res);
 
@@ -353,7 +353,7 @@ for ($i=0; $i < @count($res); $i++) {
 			<div class="card-body">
 				<div class="row no-gutters align-items-center">
 					<div class="col mr-2">
-						<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Disciplinas</div>
+						<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Treinos</div>
 						<div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo @$totalDisc ?> </div>
 					</div>
 					<div class="col-auto" align="center">

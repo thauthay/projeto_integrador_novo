@@ -2,6 +2,7 @@
 require_once("../../conexao.php"); 
 
 $nome = $_POST['nome'];
+$descricao = $_POST['descricao'];
 
 $antigo = $_POST['antigo'];
 
@@ -15,11 +16,11 @@ if($nome == ""){
 
 //VERIFICAR SE O REGISTRO JÁ EXISTE NO BANCO
 if($antigo != $nome){
-	$query = $pdo->query("SELECT * FROM disciplinas where nome = '$nome' ");
+	$query = $pdo->query("SELECT * FROM campos where campo = '$nome' ");
 	$res = $query->fetchAll(PDO::FETCH_ASSOC);
 	$total_reg = @count($res);
 	if($total_reg > 0){
-		echo 'A Disciplina já está Cadastrada!';
+		echo 'A Turma já está Cadastrada!';
 		exit();
 	}
 }
@@ -27,18 +28,18 @@ if($antigo != $nome){
 
 
 if($id == ""){
-	$res = $pdo->prepare("INSERT INTO disciplinas SET nome = :nome");	
+	$res = $pdo->prepare("INSERT INTO campos SET campo = :nome, descricao = :descricao");	
 
 
 }else{
-	$res = $pdo->prepare("UPDATE disciplinas SET nome = :nome WHERE id = '$id'");
+	$res = $pdo->prepare("UPDATE campos SET campo = :nome, descricao = :descricao WHERE id = '$id'");
 
 	
 	
 }
 
 $res->bindValue(":nome", $nome);
-
+$res->bindValue(":descricao", $descricao);
 
 $res->execute();
 

@@ -424,10 +424,10 @@ if(@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'secretari
                      $query_r = $pdo->query("SELECT * FROM turmas where id = '" . $turma . "' ");
                     $res_r = $query_r->fetchAll(PDO::FETCH_ASSOC);
 
-                    $id_disciplina = $res_r[0]['disciplina'];
+                    $id_disciplina = $res_r[0]['treino'];
 
 
-                     $query_r = $pdo->query("SELECT * FROM disciplinas where id = '" . $id_disciplina . "' ");
+                     $query_r = $pdo->query("SELECT * FROM treinos where id = '" . $id_disciplina . "' ");
                     $res_r = $query_r->fetchAll(PDO::FETCH_ASSOC);
 
                     $nome_disc = $res_r[0]['nome'];

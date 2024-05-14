@@ -8,8 +8,8 @@ $menu1 = "matriculas";
 $menu2 = "mensalidades";
 $menu3 = "pagar";
 $menu4 = "funcionarios";
-$menu5 = "disciplinas";
-$menu6 = "salas";
+$menu5 = "treinos";
+$menu6 = "campos";
 $menu7 = "turmas";
 
 
@@ -34,7 +34,7 @@ $idUsuario = @$res[0]['id'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Hugo Vasconcelos">
+    <meta name="author" content="">
 
     <title>Painel Aluno</title>
 
@@ -109,7 +109,7 @@ $idUsuario = @$res[0]['id'];
               $res_2 = $query_2->fetchAll(PDO::FETCH_ASSOC);
               
               if(@count($res_2)>0){
-              $disciplina = @$res_2[0]['disciplina'];
+              $treino = @$res_2[0]['treino'];
               $horario = @$res_2[0]['horario'];
               $dia = @$res_2[0]['dia'];
               $ano = @$res_2[0]['ano'];
@@ -117,7 +117,7 @@ $idUsuario = @$res[0]['id'];
 
               $data_finalF = implode('/', array_reverse(explode('-', $data_final)));
 
-              $query_resp = $pdo->query("SELECT * FROM disciplinas where id = '$disciplina' ");
+              $query_resp = $pdo->query("SELECT * FROM treinos where id = '$treino' ");
               $res_resp = $query_resp->fetchAll(PDO::FETCH_ASSOC);
 
               $nome_disc = @$res_resp[0]['nome'];

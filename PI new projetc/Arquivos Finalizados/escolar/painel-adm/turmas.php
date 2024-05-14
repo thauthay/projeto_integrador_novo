@@ -28,8 +28,8 @@ if(@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Admin'){
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>Disciplina</th>
-                        <th>Sala</th>
+                        <th>Treino</th>
+                        <th>Campo</th>
                         <th>Professor</th>
                         <th>Horário</th>
                         <th>Dias</th>
@@ -48,22 +48,22 @@ if(@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Admin'){
                       foreach ($res[$i] as $key => $value) {
                       }
 
-                      $disciplina = $res[$i]['disciplina'];
-                      $sala = $res[$i]['sala'];
+                      $treino = $res[$i]['treino'];
+                      $campo = $res[$i]['campo'];
                       $professor = $res[$i]['professor'];
                       $horario = $res[$i]['horario'];
                       $dia = $res[$i]['dia'];
                       $id = $res[$i]['id'];
 
-                      //RECUPERAR NOME DISCIPLINA
-                      $query_r = $pdo->query("SELECT * FROM disciplinas where id =  '$disciplina'");
+                      //RECUPERAR NOME TREINO
+                      $query_r = $pdo->query("SELECT * FROM treinos where id =  '$treino'");
                       $res_r = $query_r->fetchAll(PDO::FETCH_ASSOC);
                       $nome_disc = $res_r[0]['nome'];
 
-                       //RECUPERAR NOME SALA
-                      $query_r = $pdo->query("SELECT * FROM salas where id =  '$sala'");
+                       //RECUPERAR NOME CAMPO
+                      $query_r = $pdo->query("SELECT * FROM campos where id =  '$campo'");
                       $res_r = $query_r->fetchAll(PDO::FETCH_ASSOC);
-                      $nome_sala = $res_r[0]['sala'];
+                      $nome_sala = $res_r[0]['campo'];
 
                        //RECUPERAR NOME PROFESSOR
                       $query_r = $pdo->query("SELECT * FROM professores where id =  '$professor'");
@@ -119,8 +119,8 @@ if(@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Admin'){
                     $query = $pdo->query("SELECT * FROM turmas where id = '" . $id2 . "' ");
                     $res = $query->fetchAll(PDO::FETCH_ASSOC);
 
-                    $disciplina2 = $res[0]['disciplina'];
-                    $sala2 = $res[0]['sala'];
+                    $disciplina2 = $res[0]['treino'];
+                    $sala2 = $res[0]['campo'];
                     $professor2 = $res[0]['professor'];
                     $horario2 = $res[0]['horario'];
                     $dia2 = $res[0]['dia'];
@@ -151,12 +151,12 @@ if(@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Admin'){
                         <div class="col-md-4">
 
                          <div class="form-group">
-                            <label >Disciplina</label>
-                            <select name="disciplina" class="form-control" id="disciplina">
+                            <label >Treino</label>
+                            <select name="treino" class="form-control" id="treino">
 
                                 <?php 
 
-                                $query = $pdo->query("SELECT * FROM disciplinas order by nome asc ");
+                                $query = $pdo->query("SELECT * FROM treinos order by nome asc ");
                                 $res = $query->fetchAll(PDO::FETCH_ASSOC);
 
                                 for ($i=0; $i < @count($res); $i++) { 
@@ -175,18 +175,18 @@ if(@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Admin'){
                     </div>
                     <div class="col-md-4">
                        <div class="form-group">
-                        <label >Sala</label>
-                        <select name="sala" class="form-control" id="sala">
+                        <label >Campo</label>
+                        <select name="campo" class="form-control" id="campo">
 
                             <?php 
 
-                            $query = $pdo->query("SELECT * FROM salas order by sala asc ");
+                            $query = $pdo->query("SELECT * FROM campos order by campo asc ");
                             $res = $query->fetchAll(PDO::FETCH_ASSOC);
 
                             for ($i=0; $i < @count($res); $i++) { 
                                 foreach ($res[$i] as $key => $value) {
                                 }
-                                $nome_reg = $res[$i]['sala'];
+                                $nome_reg = $res[$i]['campo'];
                                 $id_reg = $res[$i]['id'];
                                 ?>                                  
                                 <option <?php if(@$sala2 == $id_reg){ ?> selected <?php } ?> value="<?php echo $id_reg ?>"><?php echo $nome_reg ?></option>
@@ -357,8 +357,8 @@ if(@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Admin'){
 
                     $query = $pdo->query("SELECT * FROM turmas where id = '$id2' ");
                     $res = $query->fetchAll(PDO::FETCH_ASSOC);
-                    $disciplina3 = $res[0]['disciplina'];
-                    $sala3 = $res[0]['sala'];
+                    $disciplina3 = $res[0]['treino'];
+                    $sala3 = $res[0]['campo'];
                     $professor3 = $res[0]['professor'];
                     $horario3 = $res[0]['horario'];
                     $dia3 = $res[0]['dia'];
@@ -368,15 +368,15 @@ if(@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Admin'){
                     $ano3 = $res[0]['ano'];
 
 
-                     //RECUPERAR NOME DISCIPLINA
-                    $query_r = $pdo->query("SELECT * FROM disciplinas where id =  '$disciplina3'");
+                     //RECUPERAR NOME TREINO
+                    $query_r = $pdo->query("SELECT * FROM treinos where id =  '$disciplina3'");
                     $res_r = $query_r->fetchAll(PDO::FETCH_ASSOC);
                     $nome_disc3 = $res_r[0]['nome'];
 
-                       //RECUPERAR NOME SALA
-                    $query_r = $pdo->query("SELECT * FROM salas where id =  '$sala3'");
+                       //RECUPERAR NOME CAMPO
+                    $query_r = $pdo->query("SELECT * FROM campos where id =  '$sala3'");
                     $res_r = $query_r->fetchAll(PDO::FETCH_ASSOC);
-                    $nome_sala3 = $res_r[0]['sala'];
+                    $nome_sala3 = $res_r[0]['campo'];
 
                        //RECUPERAR NOME PROFESSOR
                     $query_r = $pdo->query("SELECT * FROM professores where id =  '$professor3'");
@@ -392,9 +392,9 @@ if(@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Admin'){
 
                 ?>
 
-                <span><b>Disciplina: </b> <i><?php echo $nome_disc3 ?></i><br></span>
+                <span><b>Treino: </b> <i><?php echo $nome_disc3 ?></i><br></span>
 
-                <span><b>Sala: </b> <i><?php echo $nome_sala3 ?></i> </span><span class="ml-4"><b>Professor: </b> <i><?php echo $nome_prof3 ?></i><br></span>
+                <span><b>Campo: </b> <i><?php echo $nome_sala3 ?></i> </span><span class="ml-4"><b>Professor: </b> <i><?php echo $nome_prof3 ?></i><br></span>
 
                 <span><b>Data Início: </b> <i><?php echo $data_inicioF ?></i> </span><span class="ml-4"><b>Data Final: </b> <i><?php echo $data_finalF ?></i><br></span>
 

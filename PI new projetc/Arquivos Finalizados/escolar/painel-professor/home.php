@@ -69,7 +69,7 @@ for ($i=0; $i < count($res); $i++) {
 			<div class="card-body">
 				<div class="row no-gutters align-items-center">
 					<div class="col mr-2">
-						<div class="text-xs font-weight-bold text-info text-uppercase mb-1">Disciplinas Ministradas</div>
+						<div class="text-xs font-weight-bold text-info text-uppercase mb-1">Treinos Ministrados</div>
 						<div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo @$totalDisc ?></div>
 					</div>
 					<div class="col-auto">
@@ -151,7 +151,7 @@ for ($i=0; $i < count($res); $i++) {
 	for ($i=0; $i < count($res); $i++) { 
 		foreach ($res[$i] as $key => $value) {
 		}
-		$disciplina = $res[$i]['disciplina'];
+		$treino = $res[$i]['treino'];
 		$horario = $res[$i]['horario'];
 		$dia = $res[$i]['dia'];
 		$ano = $res[$i]['ano'];
@@ -160,7 +160,7 @@ for ($i=0; $i < count($res); $i++) {
 
 		$data_finalF = implode('/', array_reverse(explode('-', $data_final)));
 
-		$query_resp = $pdo->query("SELECT * FROM disciplinas where id = '$disciplina' ");
+		$query_resp = $pdo->query("SELECT * FROM treinos where id = '$treino' ");
 		$res_resp = $query_resp->fetchAll(PDO::FETCH_ASSOC);
 
 		$nome_disc = $res_resp[0]['nome'];

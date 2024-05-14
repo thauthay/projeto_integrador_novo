@@ -8,8 +8,8 @@
     $menu2 = "professores";
     $menu3 = "tesoureiros";
     $menu4 = "funcionarios";
-    $menu5 = "disciplinas";
-    $menu6 = "salas";
+    $menu5 = "treinos";
+    $menu6 = "campos";
     $menu7 = "turmas";
 
 
@@ -34,7 +34,7 @@ $idUsuario = @$res[0]['id'];
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
-        <meta name="author" content="Hugo Vasconcelos">
+        <meta name="author" content="">
 
         <title>Painel Administrativo</title>
 
@@ -108,13 +108,13 @@ $idUsuario = @$res[0]['id'];
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
                         <i class="fas fa-home"></i>
-                        <span>Turmas / Disciplinas</span>
+                        <span>Turmas / Treinos</span>
                     </a>
                     <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                            
-                            <a class="collapse-item" href="index.php?pag=<?php echo $menu5 ?>">Disciplinas</a>
-                            <a class="collapse-item" href="index.php?pag=<?php echo $menu6 ?>">Salas</a>
+                            <a class="collapse-item" href="index.php?pag=<?php echo $menu5 ?>">Treinos</a>
+                            <a class="collapse-item" href="index.php?pag=<?php echo $menu6 ?>">Campos</a>
                             <a class="collapse-item" href="index.php?pag=<?php echo $menu7 ?>">Turmas</a>
 
                         </div>

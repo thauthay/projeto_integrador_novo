@@ -25,7 +25,7 @@ if(@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'tesoureir
                     <tr>
                         <th>Aluno</th>
                         <th>CPF</th>
-                        <th>Disciplina</th>
+                        <th>Treino</th>
                         <th>Valor</th>
                         <th>Vencimento</th>
                         <th>Ações</th>
@@ -56,10 +56,10 @@ if(@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'tesoureir
 
                    $query_2 = $pdo->query("SELECT * FROM turmas where id = '$id_turma' ");
                     $res_2 = $query_2->fetchAll(PDO::FETCH_ASSOC);
-                    $disciplina = $res_2[0]['disciplina'];
+                    $treino = $res_2[0]['treino'];
 
 
-                    $query_2 = $pdo->query("SELECT * FROM disciplinas where id = '$disciplina' ");
+                    $query_2 = $pdo->query("SELECT * FROM treinos where id = '$treino' ");
                     $res_2 = $query_2->fetchAll(PDO::FETCH_ASSOC);
                     $nome_disciplina = $res_2[0]['nome'];
 

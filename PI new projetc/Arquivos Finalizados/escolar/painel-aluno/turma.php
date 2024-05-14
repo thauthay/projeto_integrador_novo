@@ -19,7 +19,7 @@ $id_turma = $res[0]['turma'];
 
 $query_2 = $pdo->query("SELECT * FROM turmas where id = '$id_turma' ");
 $res_2 = $query_2->fetchAll(PDO::FETCH_ASSOC);
-$disciplina = $res_2[0]['disciplina'];
+$treino = $res_2[0]['treino'];
 $horario = $res_2[0]['horario'];
 $dia = $res_2[0]['dia'];
 $ano = $res_2[0]['ano'];
@@ -37,7 +37,7 @@ $meses = $intervalo->m + ($anos * 12);
 
 $data_finalF = implode('/', array_reverse(explode('-', $data_final)));
 
-$query_resp = $pdo->query("SELECT * FROM disciplinas where id = '$disciplina' ");
+$query_resp = $pdo->query("SELECT * FROM treinos where id = '$treino' ");
 $res_resp = $query_resp->fetchAll(PDO::FETCH_ASSOC);                    
 $nome_disc = $res_resp[0]['nome'];
 
@@ -193,7 +193,7 @@ $query = $pdo->query("SELECT * FROM periodos where turma = '$id_turma' order by 
 <small>
   <div class="mb-3">
 
-   <span class="mr-3"><i><b>Disciplina Concluída </b> <?php echo $concluido ?></i></span>
+   <span class="mr-3"><i><b>T Concluída </b> <?php echo $concluido ?></i></span>
    <span class="mr-3"><i><b>Dias de Aula </b> <?php echo $dia ?></i></span>
    <span class="mr-3"><i><b>Horário Aula </b> <?php echo $horario ?></i></span>
    <span class="mr-3"><i><b>Ano Início </b> <?php echo $ano ?></i></span>
@@ -327,9 +327,9 @@ $query = $pdo->query("SELECT * FROM periodos where turma = '$id_turma' order by 
 
         $query = $pdo->query("SELECT * FROM turmas where id = '$id_turma' ");
         $res = $query->fetchAll(PDO::FETCH_ASSOC);
-        $disciplina = $res[0]['disciplina'];
+        $treino = $res[0]['treino'];
 
-        $query = $pdo->query("SELECT * FROM disciplinas where id = '$disciplina' ");
+        $query = $pdo->query("SELECT * FROM treinos where id = '$treino' ");
         $res = $query->fetchAll(PDO::FETCH_ASSOC);
         $nome_disciplina = $res[0]['nome'];
         ?>

@@ -1,8 +1,8 @@
 <?php 
 require_once("../../conexao.php"); 
 
-$disciplina = $_POST['disciplina'];
-$sala = $_POST['sala'];
+$treino = $_POST['treino'];
+$campo = $_POST['campo'];
 $professor = $_POST['professor'];
 $data_inicio = $_POST['data_inicio'];
 $data_final = $_POST['data_final'];
@@ -17,15 +17,15 @@ $valor_mensalidade = str_replace(',', '.', $valor_mensalidade);
 
 
 if($id == ""){
-	$res = $pdo->prepare("INSERT INTO turmas SET disciplina = :disciplina, sala = :sala, professor = :professor, data_inicio = :data_inicio, data_final = :data_final, horario = :horario, dia = :dia, valor_mensalidade = :valor_mensalidade, ano = :ano");	
+	$res = $pdo->prepare("INSERT INTO turmas SET treino = :treino, campo = :campo, professor = :professor, data_inicio = :data_inicio, data_final = :data_final, horario = :horario, dia = :dia, valor_mensalidade = :valor_mensalidade, ano = :ano");	
 
 }else{
-	$res = $pdo->prepare("UPDATE turmas SET disciplina = :disciplina, sala = :sala, professor = :professor, data_inicio = :data_inicio, data_final = :data_final, horario = :horario, dia = :dia, valor_mensalidade = :valor_mensalidade, ano = :ano WHERE id = '$id'");
+	$res = $pdo->prepare("UPDATE turmas SET treino = :treino, campo = :campo, professor = :professor, data_inicio = :data_inicio, data_final = :data_final, horario = :horario, dia = :dia, valor_mensalidade = :valor_mensalidade, ano = :ano WHERE id = '$id'");
 	
 }
 
-$res->bindValue(":disciplina", $disciplina);
-$res->bindValue(":sala", $sala);
+$res->bindValue(":treino", $treino);
+$res->bindValue(":campo", $campo);
 $res->bindValue(":professor", $professor);
 $res->bindValue(":data_inicio", $data_inicio);
 $res->bindValue(":data_final", $data_final);

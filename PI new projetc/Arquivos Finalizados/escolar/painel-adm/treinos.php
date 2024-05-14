@@ -1,5 +1,5 @@
 <?php 
-$pag = "salas";
+$pag = "treinos";
 require_once("../conexao.php"); 
 
 @session_start();
@@ -13,7 +13,7 @@ if(@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Admin'){
 ?>
 
 <div class="row mt-4 mb-4">
-    <a type="button" class="btn-info btn-sm ml-3 d-none d-md-block" href="index.php?pag=<?php echo $pag ?>&funcao=novo">Nova Sala</a>
+    <a type="button" class="btn-info btn-sm ml-3 d-none d-md-block" href="index.php?pag=<?php echo $pag ?>&funcao=novo">Novo Treino</a>
     <a type="button" class="btn-info btn-sm ml-3 d-block d-sm-none" href="index.php?pag=<?php echo $pag ?>&funcao=novo">+</a>
     
 </div>
@@ -28,8 +28,8 @@ if(@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Admin'){
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>Sala</th>
-                        <th>Descrição</th>
+                        <th>Nome</th>
+                        
                         <th>Ações</th>
                     </tr>
                 </thead>
@@ -38,15 +38,14 @@ if(@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Admin'){
 
                    <?php 
 
-                   $query = $pdo->query("SELECT * FROM salas order by id desc ");
+                   $query = $pdo->query("SELECT * FROM treinos order by id desc ");
                    $res = $query->fetchAll(PDO::FETCH_ASSOC);
 
                    for ($i=0; $i < count($res); $i++) { 
                       foreach ($res[$i] as $key => $value) {
                       }
 
-                      $nome = $res[$i]['sala'];
-                      $descricao = $res[$i]['descricao'];
+                      $nome = $res[$i]['nome'];
                      
                       $id = $res[$i]['id'];
 
@@ -56,7 +55,7 @@ if(@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Admin'){
 
                       <tr>
                         <td><?php echo $nome ?></td>
-                        <td><?php echo $descricao ?></td>
+                       
 
 
                         <td>
@@ -92,12 +91,11 @@ if(@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Admin'){
                     $titulo = "Editar Registro";
                     $id2 = $_GET['id'];
 
-                    $query = $pdo->query("SELECT * FROM salas where id = '" . $id2 . "' ");
+                    $query = $pdo->query("SELECT * FROM treinos where id = '" . $id2 . "' ");
                     $res = $query->fetchAll(PDO::FETCH_ASSOC);
 
-                    $nome2 = $res[0]['sala'];
-                     $descricao2 = $res[0]['descricao'];
-
+                    $nome2 = $res[0]['nome'];
+                  
 
                 } else {
                     $titulo = "Inserir Registro";
@@ -117,12 +115,7 @@ if(@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Admin'){
 
                     <div class="form-group">
                         <label >Nome</label>
-                        <input value="<?php echo @$nome2 ?>" type="text" class="form-control" id="nome" name="nome" placeholder="Sala">
-                    </div>
-
-                     <div class="form-group">
-                        <label >Descrição</label>
-                        <input value="<?php echo @$descricao2 ?>" type="text" class="form-control" id="descricao" name="descricao" placeholder="Descrição">
+                        <input value="<?php echo @$nome2 ?>" type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
                     </div>
 
 

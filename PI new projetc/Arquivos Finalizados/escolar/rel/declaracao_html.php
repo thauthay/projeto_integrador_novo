@@ -29,7 +29,7 @@ $telefone_aluno = $res_r[0]['telefone'];
 
 $query_r = $pdo->query("SELECT * FROM turmas where id = '$turma' ");
 $res_r = $query_r->fetchAll(PDO::FETCH_ASSOC);
-$disciplina = $res_r[0]['disciplina'];
+$treino = $res_r[0]['treino'];
 $data_inicio = $res_r[0]['data_inicio'];
 $data_final = $res_r[0]['data_final'];
 $valor = $res_r[0]['valor_mensalidade'];
@@ -51,7 +51,7 @@ $valor_total = $valor * $meses;
 $valor_mensalidadeF = number_format($valor, 2, ',', '.');
 $valor_totalF = number_format($valor_total, 2, ',', '.');
 
-$query_r = $pdo->query("SELECT * FROM disciplinas where id = '$disciplina' ");
+$query_r = $pdo->query("SELECT * FROM treinos where id = '$treino' ");
 $res_r = $query_r->fetchAll(PDO::FETCH_ASSOC);
 $nome_disciplina = $res_r[0]['nome'];
 
